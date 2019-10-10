@@ -13,7 +13,6 @@
 #define JP_WKANA KC_F17    // F17 on Windows
 #define JP_WEISU KC_F18    // F18 on Windows
 
-#define LCTRL_ESC  MT(MOD_LCTL, KC_ESC)
 #define SANDS    MT(MOD_LSFT, KC_SPC)
 #define RGUI_MKANA MT(MOD_RGUI, JP_MKANA)
 #define LGUI_MEISU MT(MOD_LGUI, JP_MEISU)
@@ -26,14 +25,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* MAC_BASE Level: Mac Default Layer
      |-----------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
-     | Esc       | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | -     | =   | \     | ` |
-     |-----------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
-     | Tab       | Q | W | E | R | T | Y | U | I | O | P | [     | ]   | Backs |   |
-     |-----------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
-     | LCTRL_ESC | A | S | D | F | G | H | J | K | L | ; | '     | Ent |       |   |
-     |-----------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
-     | Shift     | Z | X | C | V | B | N | M | , | . | / | Shift | Fn0 |       |   |
-     |-----------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
+     | Esc     | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | -     | =   | \     | ` |
+     |---------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
+     | Tab     | Q | W | E | R | T | Y | U | I | O | P | [     | ]   | Backs |   |
+     |---------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
+     | Control | A | S | D | F | G | H | J | K | L | ; | '     | Ent |       |   |
+     |---------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
+     | Shift   | Z | X | C | V | B | N | M | , | . | / | Shift | Fn0 |       |   |
+     |---------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
 
       |------+------------+-----------------------+------------+------|
       | LAlt | LGUI_MEISU | ******* SANDS ******* | RGUI_MKANA | RAlt |
@@ -43,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [MAC_BASE] = LAYOUT( //  default layer
         KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_BSLS, KC_GRV,
         KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC, KC_RBRC, KC_BSPC,
-        LCTRL_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT,
+        KC_LCTL, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT,
         KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, MO(MAC_HHKB),
         KC_LALT, LGUI_MEISU, /*        */ SANDS, RGUI_MKANA, KC_RALT),
 
@@ -74,15 +73,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
     /* Layer WIN_BASE : Windows Base Layer
-     |-----------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
-     | Esc       | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | -     | =   | \     | ` |
-     |-----------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
-     | Tab       | Q | W | E | R | T | Y | U | I | O | P | [     | ]   | Backs |   |
-     |-----------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
-     | LCTRL_ESC | A | S | D | F | G | H | J | K | L | ; | '     | Ent |       |   |
-     |-----------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
-     | Shift     | Z | X | C | V | B | N | M | , | . | / | Shift | Fn0 |       |   |
-     |-----------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
+     |---------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
+     | Esc     | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | -     | =   | \     | ` |
+     |---------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
+     | Tab     | Q | W | E | R | T | Y | U | I | O | P | [     | ]   | Backs |   |
+     |---------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
+     | Control | A | S | D | F | G | H | J | K | L | ; | '     | Ent |       |   |
+     |---------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
+     | Shift   | Z | X | C | V | B | N | M | , | . | / | Shift | Fn0 |       |   |
+     |---------+---+---+---+---+---+---+---+---+---+---+-------+-----+-------+---|
 
       |------+------------+-----------------------+------------+------|
       | LAlt | LGUI_WEISU | ******* SANDS ******* | RGUI_WKANA | RAlt |
@@ -92,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [WIN_BASE] = LAYOUT( //  default layer
         KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_BSLS, KC_GRV,
         KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC, KC_RBRC, KC_BSPC,
-        LCTRL_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT,
+        KC_LCTL, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT,
         KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, MO(WIN_HHKB),
         KC_LALT, LGUI_WEISU, /*        */ SANDS, RGUI_WKANA, KC_RALT),
 
@@ -137,13 +136,6 @@ inline bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_ESC:
             if (record->event.pressed && get_mods() == 0) {
                 disable_ime();
-            }
-            return true;
-        case LCTRL_ESC:
-            if (record->event.pressed) {
-                if (record->tap.count > 0) {
-                    disable_ime();
-                }
             }
             return true;
         case KC_LBRC:
