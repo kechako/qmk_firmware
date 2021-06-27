@@ -2,24 +2,19 @@
  * kechako HHKB Layout
  */
 #include QMK_KEYBOARD_H
+#include "kechako.h"
 
-#define MAC_BASE 0
-#define MAC_HHKB 1
-#define WIN_BASE 2
-#define WIN_HHKB 3
+enum layers {
+    MAC_BASE,
+    MAC_HHKB,
+    WIN_BASE,
+    WIN_HHKB,
+};
 
-#define JP_MKANA KC_LANG1  // kana on macOS
-#define JP_MEISU KC_LANG2  // eisu on macOS
-#define JP_WKANA KC_F17    // F17 on Windows
-#define JP_WEISU KC_F18    // F18 on Windows
-
-#define SANDS    MT(MOD_LSFT, KC_SPC)
 #define RGUI_MKANA MT(MOD_RGUI, JP_MKANA)
 #define LGUI_MEISU MT(MOD_LGUI, JP_MEISU)
 #define RGUI_WKANA MT(MOD_RGUI, JP_WKANA)
 #define LGUI_WEISU MT(MOD_LGUI, JP_WEISU)
-
-#define MOD_LCTRL MOD_BIT(KC_LCTL)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -117,17 +112,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_CAPS, KC_WH_D, KC_MS_U, KC_WH_U, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PSCR, KC_SLCK, KC_PAUS, KC_UP, KC_TRNS, KC_BSPC,
         KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS, KC_TRNS, KC_PAST, KC_PSLS, KC_HOME, KC_PGUP, KC_LEFT, KC_RGHT, KC_PENT,
         KC_TRNS, KC_VOLD, KC_VOLU, KC_MUTE, KC_TRNS, KC_TRNS, KC_PPLS, KC_PMNS, KC_END, KC_PGDN, KC_DOWN, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_BTN1, KC_BTN2, DF(MAC_BASE))};
+        KC_TRNS, KC_TRNS, KC_BTN1, KC_BTN2, DF(MAC_BASE))
+};
 
 inline void disable_ime(void) {
     if (layer_state_is(MAC_BASE) || layer_state_is(MAC_HHKB)) {
         // mac
-        dprint("disable_ime: mac");
-        tap_code(JP_MEISU);
+        send_disable_ime(0);
     } else if (layer_state_is(WIN_BASE) || layer_state_is(WIN_HHKB)) {
         // win
-        dprint("disable_ime: win");
-        tap_code(JP_WEISU);
+        send_disable_ime(1);
     }
 }
 
